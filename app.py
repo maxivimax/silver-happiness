@@ -180,14 +180,14 @@ with gr.Blocks(css=css) as demo:
         f"""
             <div class="finetuned-diffusion-div">
               <div>
-                <h1>Finetuned Diffusion</h1>
+                <h1>Finetuned Diffusion (Edited) 🪄🖼️</h1>
               </div>
               <p>
-               Demo for multiple fine-tuned Stable Diffusion models, trained on different styles: <br>
-               <a href="https://huggingface.co/nitrosocke/Arcane-Diffusion">Arcane</a>, <a href="https://huggingface.co/nitrosocke/archer-diffusion">Archer</a>, <a href="https://huggingface.co/nitrosocke/elden-ring-diffusion">Elden Ring</a>, <a href="https://huggingface.co/nitrosocke/spider-verse-diffusion">Spider-Verse</a>, <a href="https://huggingface.co/nitrosocke/modern-disney-diffusion">Modern Disney</a>, <a href="https://huggingface.co/nitrosocke/classic-anim-diffusion">Classic Disney</a>, <a href="https://huggingface.co/hakurei/waifu-diffusion">Waifu</a>, <a href="https://huggingface.co/lambdalabs/sd-pokemon-diffusers">Pokémon</a>, <a href="https://huggingface.co/AstraliteHeart/pony-diffusion">Pony Diffusion</a>, <a href="https://huggingface.co/nousr/robo-diffusion">Robo Diffusion</a>, <a href="https://huggingface.co/DGSpitzer/Cyberpunk-Anime-Diffusion">Cyberpunk Anime</a>, <a href="https://huggingface.co/dallinmackay/Tron-Legacy-diffusion">Tron Legacy</a> + any other custom Diffusers 🧨 SD model hosted on HuggingFace 🤗.
+               Тут юзаются: <br>
+               <a href="https://huggingface.co/nitrosocke/Arcane-Diffusion">Arcane</a>, <a href="https://huggingface.co/nitrosocke/archer-diffusion">Archer</a>, <a href="https://huggingface.co/nitrosocke/elden-ring-diffusion">Elden Ring</a>, <a href="https://huggingface.co/nitrosocke/spider-verse-diffusion">Spider-Verse</a>, <a href="https://huggingface.co/nitrosocke/modern-disney-diffusion">Modern Disney</a>, <a href="https://huggingface.co/nitrosocke/classic-anim-diffusion">Classic Disney</a>, <a href="https://huggingface.co/hakurei/waifu-diffusion">Waifu</a>, <a href="https://huggingface.co/lambdalabs/sd-pokemon-diffusers">Pokémon</a>, <a href="https://huggingface.co/AstraliteHeart/pony-diffusion">Pony Diffusion</a>, <a href="https://huggingface.co/nousr/robo-diffusion">Robo Diffusion</a>, <a href="https://huggingface.co/DGSpitzer/Cyberpunk-Anime-Diffusion">Cyberpunk Anime</a>, <a href="https://huggingface.co/dallinmackay/Tron-Legacy-diffusion">Tron Legacy</a>.
               </p>
-              <p>Don't want to wait in queue? <a href="https://colab.research.google.com/gist/qunash/42112fb104509c24fd3aa6d1c11dd6e0/copy-of-fine-tuned-diffusion-gradio.ipynb"><img data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" src="https://camo.githubusercontent.com/84f0493939e0c4de4e6dbe113251b4bfb5353e57134ffd9fcab6b8714514d4d1/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667"></a></p>
-               Running on <b>{device}</b>{(" in a <b>Google Colab</b>." if is_colab else "")}
+              <p>
+               Запущено на <b>{device}</b>{(" <b>Google Colab</b>." if is_colab else "")}
               </p>
             </div>
         """
@@ -240,14 +240,6 @@ with gr.Blocks(css=css) as demo:
     inputs = [model_name, prompt, guidance, steps, width, height, seed, image, strength, neg_prompt]
     prompt.submit(inference, inputs=inputs, outputs=image_out)
     generate.click(inference, inputs=inputs, outputs=image_out)
-
-    ex = gr.Examples([
-        [models[1].name, "jason bateman disassembling the demon core", 7.5, 50],
-        [models[4].name, "portrait of dwayne johnson", 7.0, 75],
-        [models[5].name, "portrait of a beautiful alyx vance half life", 10, 50],
-        [models[6].name, "Aloy from Horizon: Zero Dawn, half body portrait, smooth, detailed armor, beautiful face, illustration", 7.0, 45],
-        [models[5].name, "fantasy portrait painting, digital art", 4.0, 30],
-    ], [model_name, prompt, guidance, steps, seed], image_out, inference, cache_examples=False)
 
     gr.Markdown('''
       Models by [@nitrosocke](https://huggingface.co/nitrosocke), [@haruu1367](https://twitter.com/haruu1367), [@Helixngc7293](https://twitter.com/DGSpitzer) and others. ❤️<br>
