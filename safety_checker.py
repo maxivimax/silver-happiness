@@ -6,6 +6,7 @@ from transformers import CLIPConfig, CLIPVisionModel, PreTrainedModel
 
 from ...utils import logging
 
+safety_checker=None
 
 logger = logging.get_logger(__name__)
 
